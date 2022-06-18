@@ -1,35 +1,57 @@
-import React from "react";
+import React, { FC, useState, SyntheticEvent, ChangeEvent } from "react";
 import css from "./login.module.css";
 import Button from "../UI/Button";
 import Input from "../UI/Input";
 import { MdLockOutline } from "react-icons/md";
+import { BsGoogle } from "react-icons/bs";
 import Card from "../UI/Card";
 
-function Login() {
+const Login: FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const handleInputPassword = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmitForm = (e: SyntheticEvent) => {
+    e.preventDefault();
+    setEmail("");
+    setPassword("");
+  };
+
   return (
     <Card>
-      <form>
+      <form onSubmit={handleSubmitForm}>
         <div className={css.test}>
           <MdLockOutline className={css.icon} />
         </div>
         <legend>Login</legend>
         <div>
           <Input
-            type="text"
-            placeholder="Username"
+            type="email"
+            value={email}
+            placeholder="Email"
             required
-            name={"username"}
+            name={"Email"}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(event.target.value)
+            }
           />
         </div>
         <div>
           <Input
             type="password"
+            value={password}
             placeholder="Password"
-            required
             name={"password"}
+            onChange={handleInputPassword}
           />
         </div>
-        <Button>submit</Button>
+        <Button>Login</Button>
+        <Button outline>
+          <BsGoogle className={css.gmail} /> <span>Login with Gmail</span>
+        </Button>
         <div>
           Do you have an account?
           <br />
@@ -38,6 +60,6 @@ function Login() {
       </form>
     </Card>
   );
-}
+};
 
 export default Login;
