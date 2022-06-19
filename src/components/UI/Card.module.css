@@ -1,6 +1,6 @@
 .container {
   position: absolute;
-  top: 25%;
+  top: 43%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 0.1rem solid #adadad;
@@ -8,7 +8,7 @@
   border-radius: 1rem;
   width: 100%;
   max-width: 22rem;
-  margin: 7rem auto;
+  margin: 0 auto;
   padding: 2rem 2rem;
-  height: 36.5rem;
+  height: 42rem;
 }

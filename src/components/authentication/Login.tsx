@@ -5,10 +5,12 @@ import Input from "../UI/Input";
 import { MdLockOutline } from "react-icons/md";
 import { BsGoogle } from "react-icons/bs";
 import Card from "../UI/Card";
+import { useNavigate } from "react-router-dom";
 
 const Login: FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  let navigate = useNavigate();
 
   const handleInputPassword = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -49,14 +51,14 @@ const Login: FC = () => {
           />
         </div>
         <Button>Login</Button>
-        <Button outline>
+        <Button icon>
           <BsGoogle className={css.gmail} /> <span>Login with Gmail</span>
         </Button>
         <div>
           Do you have an account?
           <br />
         </div>
-        <a href="#">Sign up!</a>
+        <a href="/signup">Sign up!</a>
       </form>
     </Card>
   );

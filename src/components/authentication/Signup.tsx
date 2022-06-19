@@ -4,6 +4,7 @@ import Input from "../UI/Input";
 import csstyle from "./login.module.css";
 import { FaUserAlt } from "react-icons/fa";
 import Button from "../UI/Button";
+import { BsGoogle } from "react-icons/bs";
 
 const Signup: FC = () => {
   const [name, setName] = useState<string>("");
@@ -76,6 +77,17 @@ const Signup: FC = () => {
           onChange={handleInputConfirmPassword}
         />
         <Button>Sign Up</Button>
+        <Button icon>
+          <BsGoogle className={csstyle.gmail} />
+          <span>Sign Up with Gmail</span>
+        </Button>
+        <div>
+          Already have an existing account?
+          <br />
+          <span>
+            Login <a href="/">here!</a>
+          </span>
+        </div>
       </form>
     </Card>
   );

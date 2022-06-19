@@ -3,12 +3,12 @@ import css from "./Button.module.css";
 import clsx from "clsx";
 
 const Button = (props) => {
-  const { children, type, outline, ...rest } = props;
+  const { children, type, icon, ...rest } = props;
 
   return (
     <button
       type={type}
-      className={`${css.button} ${outline ? css.outline : css.default}`}
+      className={`${css.button} ${icon ? css.outline : css.default}`}
       {...rest}
     >
       {children}
