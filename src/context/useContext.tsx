@@ -18,7 +18,7 @@ interface props {
   children: ReactNode;
 }
 
-const userContext = createContext<string | null>(null);
+const userContext = createContext<object | null>(null);
 
 const useUserContext = () => useContext(userContext);
 
